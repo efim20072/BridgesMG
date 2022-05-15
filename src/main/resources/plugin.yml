@@ -1,0 +1,9 @@
+name: BridgesMG
+version: '${project.version}'
+main: me.elijahproductions.bridgesmg.BridgesMG
+api-version: 1.16
+authors: [ Elijah, kalist28 ]
+description: Bridges Mini Game plugin
+commands:
+  jumplobby:
+    description:
