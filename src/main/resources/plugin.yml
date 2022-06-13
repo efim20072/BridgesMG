@@ -4,6 +4,27 @@ main: me.elijahproductions.bridgesmg.BridgesMG
 api-version: 1.16
 authors: [ Elijah, kalist28 ]
 description: Bridges Mini Game plugin
+
+
+
 commands:
-  jumplobby:
+  bg:
+    usage: /<command>
+    description: Gb commands
+  create:
+    description:
+  bg jumplobby:
+    description: dfgsdf
+  bg create config:
+    usage: /<command> [name]
+  bg set portal:
+    usage: </command>
+    description:
+  bg save:
+    description:
+  bg set spawn:
+    description:
+  bg set lobby:
+    description:
+  bg set waiting room:
     description:

@@ -1,11 +1,12 @@
 package me.elijahproductions.bridgesmg;
 
 import lombok.SneakyThrows;
-import me.elijahproductions.bridgesmg.entity.TeamType;
-import me.elijahproductions.bridgesmg.entity.game.GameMatch;
-import me.elijahproductions.bridgesmg.service.CommandService;
-import me.elijahproductions.bridgesmg.service.EventService;
-import me.elijahproductions.bridgesmg.service.LobbyService;
+import me.elijahproductions.bridgesmg.common.entity.TeamType;
+import me.elijahproductions.bridgesmg.infrastructure.SDK;
+import me.elijahproductions.bridgesmg.infrastructure.minigame.entity.game.GameMatch;
+import me.elijahproductions.bridgesmg.infrastructure.minigame.service.CommandService;
+import me.elijahproductions.bridgesmg.infrastructure.minigame.service.EventService;
+import me.elijahproductions.bridgesmg.infrastructure.minigame.service.LobbyService;
 import org.bukkit.plugin.java.JavaPlugin;
 import org.bukkit.scheduler.BukkitRunnable;
 
