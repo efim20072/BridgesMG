@@ -2,7 +2,6 @@ package me.elijahproductions.bridgesmg.infrastructure.minigame.service;
 
 import me.elijahproductions.bridgesmg.infrastructure.createconfig.comand.BaseCommandExecutor;
 import me.elijahproductions.bridgesmg.infrastructure.minigame.command.CommandsListener;
-import me.elijahproductions.bridgesmg.infrastructure.minigame.command.JumpLobbyCommandExecutor;
 import org.apache.commons.lang.ArrayUtils;
 import org.bukkit.command.PluginCommand;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,7 +24,6 @@ public class CommandService {
 
     private CommandsListener[] getGameCommands() {
         return new CommandsListener[]{
-                new JumpLobbyCommandExecutor()
         };
     }
 

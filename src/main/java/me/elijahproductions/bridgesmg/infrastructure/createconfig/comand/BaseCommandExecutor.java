@@ -1,8 +1,8 @@
 package me.elijahproductions.bridgesmg.infrastructure.createconfig.comand;
 
 import me.elijahproductions.bridgesmg.infrastructure.SDK;
-import me.elijahproductions.bridgesmg.infrastructure.minigame.command.CommandsListener;
 import me.elijahproductions.bridgesmg.infrastructure.createconfig.service.GameCreateProcessorImpl;
+import me.elijahproductions.bridgesmg.infrastructure.minigame.command.CommandsListener;
 import me.elijahproductions.bridgesmg.infrastructure.minigame.service.GamePlayProcessorImpl;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;

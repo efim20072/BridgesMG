@@ -30,10 +30,9 @@ public class SaveConfigServiceImpl implements SaveConfigService {
     }
 
     private long insertConfig(CreateState state) {
-        val worldName = state.getLobby().getWorld().getName();
         return new InsertConfigSqlQuery(
                 state.getName(),
-                worldName,
+                state.getWorldName(),
                 state.getTeamSize(),
                 state.getMaxScore()
         ).execute(unitDBWork);

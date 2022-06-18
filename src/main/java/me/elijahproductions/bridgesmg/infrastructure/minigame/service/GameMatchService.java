@@ -1,5 +1,6 @@
 package me.elijahproductions.bridgesmg.infrastructure.minigame.service;
 
+import lombok.val;
 import me.elijahproductions.bridgesmg.infrastructure.SDK;
 import me.elijahproductions.bridgesmg.common.entity.TeamType;
 import me.elijahproductions.bridgesmg.infrastructure.minigame.entity.game.GameConfig;
@@ -27,11 +28,16 @@ public class GameMatchService {
         GameMatch match = gameMatchCreateHelper.createMatch(config);
         match.setPlayers(players);
         //TODO некрасиво
-        System.out.println("PLAYERS - " + players.toString());
-        System.out.println("WaitingRooms - " + match.getWaitingRooms().getRooms().get(TeamType.BLUE));
-        players.forEach(player -> player.teleport(match.getWaitingRooms().getRooms().get(TeamType.BLUE)));
+        int counter = 0;
+        for (Player player : players) {
+            val teamType = ++counter % 2 == 0 ? TeamType.BLUE : TeamType.RED;
+            player.teleport(
+                    match.getWaitingRooms()
+                            .getRooms()
+                            .get(teamType)
+            );
+        }
 
-        //TODO PortalManager -> create portals
         portalManager.createPortals(match);
 
         return match;

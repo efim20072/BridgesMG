@@ -1,4 +1,4 @@
-package me.elijahproductions.bridgesmg.infrastructure.minigame.service;
+package me.elijahproductions.bridgesmg.infrastructure.common.service;
 
 import lombok.val;
 import me.elijahproductions.bridgesmg.infrastructure.SDK;

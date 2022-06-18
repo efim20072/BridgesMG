@@ -1,7 +1,7 @@
 package me.elijahproductions.bridgesmg.infrastructure.minigame.service;
 
-import lombok.val;
 import me.elijahproductions.bridgesmg.common.entity.TeamType;
+import me.elijahproductions.bridgesmg.infrastructure.common.service.WorldGenerateService;
 import me.elijahproductions.bridgesmg.infrastructure.minigame.entity.game.GameConfig;
 import me.elijahproductions.bridgesmg.infrastructure.minigame.entity.game.GameMatch;
 import org.bukkit.World;
@@ -32,16 +32,11 @@ public class GameMatchCreateHelper {
     }
 
     private void setWorldToPortalLocations(GameConfig config, World world, TeamType type) {
-
-        val a =config.getGamePortals()
-                .getPortals();
-                //.get(type);
-        System.out.println("TYPE********** - " + type);
-        System.out.println("Pots********** - " + a);
-        /*a
+        config.getGamePortals()
+                .getPortals()
+                .get(type)
                 .getAllLocations()
-                .forEach(location -> location.setWorld(world));*/
-
+                .forEach(location -> location.setWorld(world));
     }
 
     private void setWorldToWaitingRoomsLocation(GameConfig config, World world, TeamType type) {

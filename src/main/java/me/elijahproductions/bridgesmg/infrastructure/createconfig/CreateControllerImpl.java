@@ -8,8 +8,10 @@ import me.elijahproductions.bridgesmg.domain.createconfig.CreateController;
 import me.elijahproductions.bridgesmg.domain.createconfig.entity.CreateState;
 import me.elijahproductions.bridgesmg.domain.createconfig.service.SaveConfigService;
 import me.elijahproductions.bridgesmg.infrastructure.SDK;
+import me.elijahproductions.bridgesmg.infrastructure.common.service.WorldGenerateService;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
+import org.bukkit.World;
 import org.bukkit.entity.Player;
 
 import java.util.Set;
@@ -25,9 +27,11 @@ public class CreateControllerImpl implements CreateController {
     private static CreateControllerImpl instance = null;
 
     private final SaveConfigService saveConfigService;
+    private final WorldGenerateService worldGenerateService;
 
     private CreateControllerImpl() {
         saveConfigService = SDK.get().getSaveConfigService();
+        worldGenerateService = SDK.get().getWorldGenerateService();
     }
 
     public static CreateControllerImpl get() {
@@ -35,21 +39,42 @@ public class CreateControllerImpl implements CreateController {
         return instance;
     }
 
+    private World world;
     private Player player;
     private CreateState state;
 
+    private Location lastPlayerLocation;
+
     @Override
-    public void createConfig(String name, Player player) {
+    public void createConfig(
+            String configName,
+            String worldName,
+            Player player
+    ) {
         if (this.player != null) {
             player.sendMessage("Конфиг создается другим игроком.");
             return;
         }
+        world = worldGenerateService.generateWorld(worldName);
+        if (world == null) {
+            player.sendMessage("Такого мира не существует");
+            return;
+        }
+
         this.player = player;
         state = new CreateState();
-        state.setName(name);
+        state.setName(configName);
+        state.setWorldName(worldName);
         initPortalCorners();
 
+        teleportPlayer(player, world);
+
         showProgress();
+    }
+
+    private void teleportPlayer(Player player, World world) {
+        lastPlayerLocation = player.getLocation();
+        player.teleport(world.getSpawnLocation());
     }
 
     private void initPortalCorners() {
@@ -105,7 +130,11 @@ public class CreateControllerImpl implements CreateController {
             showFilledErrorMessage();
             return;
         }
-        player = null;
+        if (lastPlayerLocation != null) {
+            player.teleport(lastPlayerLocation);
+            player = null;
+        }
+        if (world != null) worldGenerateService.deleteWorld(world);
         saveConfigService.save(state);
     }
 

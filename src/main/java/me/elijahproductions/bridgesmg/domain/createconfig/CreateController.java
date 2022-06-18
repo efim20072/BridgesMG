@@ -6,7 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 
 public interface CreateController {
-    void createConfig(String name,Player player);
+    void createConfig(String configName, String worldName, Player player);
     void addWaitingRoom(WaitingRoom waitingRoom);
     void addCorner(TeamType type, Location location, int number);
     void addTeamSpawn(TeamType type, Location location);

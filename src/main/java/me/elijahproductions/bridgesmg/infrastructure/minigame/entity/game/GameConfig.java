@@ -79,15 +79,4 @@ public class GameConfig {
     GamePortals gamePortals;
 
     GameWaitingRooms waitingRooms;
-
-    @Override
-    public String toString() {
-        return "GameConfig{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", teamSize=" + teamSize +
-                ", gamePortals=" + gamePortals +
-                ", waitingRooms=" + waitingRooms +
-                '}';
-    }
 }

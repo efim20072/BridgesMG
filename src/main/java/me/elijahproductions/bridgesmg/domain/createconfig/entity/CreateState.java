@@ -13,6 +13,7 @@ import java.util.Map;
 @Data
 public class CreateState {
     String name = null;
+    String worldName = null;
     int teamSize = 2;
     int maxScore = 5;
     Location lobby = null;

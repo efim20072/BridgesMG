@@ -2,6 +2,7 @@ package me.elijahproductions.bridgesmg.infrastructure;
 
 import me.elijahproductions.bridgesmg.BridgesMG;
 import me.elijahproductions.bridgesmg.domain.createconfig.service.SaveConfigService;
+import me.elijahproductions.bridgesmg.infrastructure.common.service.WorldGenerateService;
 import me.elijahproductions.bridgesmg.infrastructure.createconfig.service.GameCreateProcessorImpl;
 import me.elijahproductions.bridgesmg.infrastructure.createconfig.service.SaveConfigServiceImpl;
 import me.elijahproductions.bridgesmg.infrastructure.minigame.broadcast.EventsBroadcastReceiver;

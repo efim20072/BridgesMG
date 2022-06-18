@@ -20,7 +20,8 @@ public class GameCreateProcessorImpl implements GameCreateProcessor {
     private static final int TEAM_TYPE = 2;
     private static final int MAX_SCORE = 2;
     private static final int TEAM_SIZE = 2;
-    private static final int CONFIG_NAME = 2;
+    private static final int CONFIG_NAME = 3;
+    private static final int CONFIG_WORLD_NAME = 2;
     private static final int OBJECT_NUMBER = 3;
 
     CreateController controller = CreateControllerImpl.get();
@@ -118,7 +119,11 @@ public class GameCreateProcessorImpl implements GameCreateProcessor {
 
             Player player = (Player) sender;
             switch (objectType) {
-                case CONFIG -> controller.createConfig(args[CONFIG_NAME], player);
+                case CONFIG -> controller.createConfig(
+                        args[CONFIG_NAME],
+                        args[CONFIG_WORLD_NAME],
+                        player
+                );
             }
         } catch (IllegalArgumentException exception) {
             System.out.println(exception.getMessage());

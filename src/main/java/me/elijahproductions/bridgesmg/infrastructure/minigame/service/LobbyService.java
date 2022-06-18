@@ -2,7 +2,6 @@ package me.elijahproductions.bridgesmg.infrastructure.minigame.service;
 
 import lombok.val;
 import me.elijahproductions.bridgesmg.infrastructure.SDK;
-import me.elijahproductions.bridgesmg.infrastructure.minigame.command.JumpLobbyCommandExecutor;
 import me.elijahproductions.bridgesmg.infrastructure.minigame.controller.MatchesController;
 import me.elijahproductions.bridgesmg.infrastructure.minigame.eventlistener.LobbyExitEvent;
 import me.elijahproductions.bridgesmg.infrastructure.minigame.task.StartMatchCountdownTask;
@@ -30,9 +29,8 @@ public class LobbyService {
     }
 
     private void init() {
-        JumpLobbyCommandExecutor.observable.subscribe(
+        GamePlayProcessorImpl.observable.subscribe(
                 player -> {
-                    //TODO проверка что чел уже зашел
                     if (players.contains(player)) return;
                     players.add(player);
                     if (enough()) {

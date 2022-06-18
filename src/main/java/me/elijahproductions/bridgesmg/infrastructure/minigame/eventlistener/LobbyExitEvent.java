@@ -1,5 +1,6 @@
 package me.elijahproductions.bridgesmg.infrastructure.minigame.eventlistener;
 
+import me.elijahproductions.bridgesmg.infrastructure.SDK;
 import me.elijahproductions.bridgesmg.infrastructure.minigame.broadcast.EventsBroadcastReceiver;
 import me.elijahproductions.bridgesmg.common.listener.BaseObserver;
 import me.elijahproductions.bridgesmg.common.listener.EventObservable;
@@ -12,7 +13,7 @@ public class LobbyExitEvent implements Listener {
 
     public static final EventObservable<Observer> observable = new EventObservable<>();
 
-    EventsBroadcastReceiver broadcastReceiver;
+    private final EventsBroadcastReceiver broadcastReceiver = SDK.get().getEventsBroadcastReceiver();
 
     public interface Observer extends BaseObserver {
         void onExit(Player player);

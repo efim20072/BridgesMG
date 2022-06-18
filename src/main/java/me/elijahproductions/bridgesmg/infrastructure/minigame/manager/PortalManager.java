@@ -20,7 +20,6 @@ public class PortalManager {
 
             for (int i = 0; i < locations.size(); i++) {
                 locations.get(i).getBlock().setType(Material.END_PORTAL);
-
             }
         }
     }
